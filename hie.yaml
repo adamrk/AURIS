@@ -1,0 +1,85 @@
+cradle:
+  stack:
+    - path: "auris-tm-displays/src/"
+      component: "auris-tm-displays:lib"
+
+    - path: "aurisi/src/AURISiMain.hs"
+      component: "aurisi:exe:AURISi"
+
+    - path: "aurisi/src/AURISi.hs"
+      component: "aurisi:exe:AURISi"
+
+    - path: "esa-base/src"
+      component: "esa-base:lib"
+
+    - path: "esa-db/src"
+      component: "esa-db:lib"
+
+    - path: "esa-db/app/Main.hs"
+      component: "esa-db:exe:esa-db-exe"
+
+    - path: "esa-db/app/Paths_esa_db.hs"
+      component: "esa-db:exe:esa-db-exe"
+
+    - path: "esa-db/test"
+      component: "esa-db:test:esa-db-test"
+
+    - path: "esa-mib/src"
+      component: "esa-mib:lib"
+
+    - path: "esa-mib/test/LoadMIBTest.hs"
+      component: "esa-mib:exe:LoadMIBTest"
+
+    - path: "esa-space-protocols/src"
+      component: "esa-space-protocols:lib"
+
+    - path: "esa-space-protocols/src/test/WriteConfig.hs"
+      component: "esa-space-protocols:exe:WriteConfig"
+
+    - path: "esa-space-protocols/src/bench/TestBits.hs"
+      component: "esa-space-protocols:bench:TestBits"
+
+    - path: "esa-space-protocols/src/test"
+      component: "esa-space-protocols:test:CLTUTest"
+
+    - path: "esa-space-protocols/src/bench/CmdEncodePerf.hs"
+      component: "esa-space-protocols:bench:CmdEncodePerf"
+
+    - path: "esa-space-protocols/src/bench/CmdEncodePerf.hs"
+      component: "esa-space-protocols:bench:CmdEncodePerf2"
+
+    - path: "esa-space-protocols/src/test/CommandingTest.hs"
+      component: "esa-space-protocols:exe:CommandingTest"
+
+    - path: "esa-space-protocols/src/test/EventLoggingDBTest.hs"
+      component: "esa-space-protocols:exe:EventLoggingDBTest"
+
+    - path: "esa-space-protocols/src/test/CommandingAD.hs"
+      component: "esa-space-protocols:exe:CommandingAD"
+
+    - path: "esa-space-protocols/src/test"
+      component: "esa-space-protocols:test:TCEncodeTests"
+
+    - path: "esa-space-protocols/src/test/TMSimulatorTest.hs"
+      component: "esa-space-protocols:exe:TMSimulatorTest"
+
+    - path: "esa-space-protocols/src/test/TMModelTest.hs"
+      component: "esa-space-protocols:exe:TMModelTest"
+
+    - path: "esa-tm-model/src"
+      component: "esa-tm-model:lib"
+
+    - path: "gui-base/src"
+      component: "gui-base:lib"
+
+    - path: "gui-base/src/bench/PerfTableModel.hs"
+      component: "gui-base:bench:PerfTableModel"
+
+    - path: "hashtables-mo/./"
+      component: "hashtables-mo:bench:/hashtable-benchmark.cabal"
+
+    - path: "hashtables-mo/src"
+      component: "hashtables-mo:lib"
+
+    - path: "mcs-interface/src"
+      component: "mcs-interface:lib"
