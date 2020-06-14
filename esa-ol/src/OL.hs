@@ -11,17 +11,76 @@ import Data.Map.Strict as MS
 import Control.Monad.Trans.State.Strict
 import Control.Monad.Trans.Class
 
-data Expr = Lit Double
-    | Var Var
+data Program = Program [Stmt]
     deriving (Eq, Show)
 
-type Var = Text 
-
-data Stmt = Assign Var Expr
+data Stmt = Assign Variable Expr
+    | If Expr [Stmt]
+    | IfElse Expr [Stmt] [Stmt]
+    -- | e.g. `5;` The last calculated value prior to exiting the OL script is used as the source value of the associated synthetic parameter.
+    | ReturnExpr
+    -- | e.g. `return(5);`
+    | ReturnStmt Expr
     deriving (Eq, Show)
 
-data Program = Program [Stmt] Expr
+type Variable = Text
+
+data Expr = Lit Text -- TODO: either int, bool, double, string, time, etc.
+    -- | Monitoring parameter
+    | Param Text ParamView
+    -- | Static reference to a monitoring parameter, e.g. `$_T1`
+    | StaticParam Text ParamView
+    -- | Local variable, e.g. `VAR_T1` or `VAR1`
+    | Var Variable
+    -- | Global variable, e.g. `GVAR_T1`
+    | GVar Variable
+    | Op Operator
+    -- current time
+    | SystemTime
+    | SystemDate
     deriving (Eq, Show)
+
+data ParamView = Raw | Eng | Time | None
+
+data Operator = Add Expr Expr -- +
+    | Sub Expr Expr -- -
+    | Mult Expr Expr -- *
+    | Div Expr Expr -- /
+    | Power Expr Expr -- **
+    | Modulus Expr Expr -- %
+    | Remainder Expr Expr -- %%
+    -- Relational
+    | Lt Expr Expr -- >
+    | Gt Expr Expr -- <
+    | Lte Expr Expr -- <=
+    | Gte Expr Expr -- >=
+    | Eq Expr Expr -- ==
+    | Neq Expr Expr -- <>
+    -- Bitwise
+    | ShiftRight Expr Expr -- >>
+    | ShiftLeft Expr Expr -- <<
+    | And Expr Expr -- and
+    | Or Expr Expr -- or
+    | Not Expr -- not
+    | Nand Expr Expr -- nand
+    | Nor Expr Expr -- nor
+    | Xor Expr Expr -- xor
+    -- Logical: TODO
+    | Land Expr Expr -- land
+    | Lor Expr Expr -- lor
+    | Lnot Expr -- lnot
+    -- Trigonometric
+    | Sin Expr
+    | ArcSin Expr
+    | Cos Expr
+    | ArcCos Expr
+    | Tan Expr
+    | ArcTan Expr
+    | CoTan Expr
+    | ArcCoTan Expr
+
+
+
 
 type Env = Map Var Double
 
