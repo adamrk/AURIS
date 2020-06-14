@@ -30,6 +30,18 @@ cradle:
     - path: "esa-mib/test/LoadMIBTest.hs"
       component: "esa-mib:exe:LoadMIBTest"
 
+    - path: "esa-ol/src"
+      component: "esa-ol:lib"
+
+    - path: "esa-ol/app/Main.hs"
+      component: "esa-ol:exe:esa-ol-exe"
+
+    - path: "esa-ol/app/Paths_esa_ol.hs"
+      component: "esa-ol:exe:esa-ol-exe"
+
+    - path: "esa-ol/test"
+      component: "esa-ol:test:esa-ol-test"
+
     - path: "esa-space-protocols/src"
       component: "esa-space-protocols:lib"
 
@@ -59,6 +71,9 @@ cradle:
 
     - path: "esa-space-protocols/src/test"
       component: "esa-space-protocols:test:TCEncodeTests"
+
+    - path: "esa-space-protocols/src/test"
+      component: "esa-space-protocols:test:TMExtractionTest"
 
     - path: "esa-space-protocols/src/test/TMSimulatorTest.hs"
       component: "esa-space-protocols:exe:TMSimulatorTest"
