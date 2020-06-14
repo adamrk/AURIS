@@ -1,0 +1,70 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 567b2b79e4a3cab69847ca781683bbd4c8cace6bea8e1b6818fecfb2416d247e
+
+name:           esa-ol
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/adamrk/esa-ol#readme>
+homepage:       https://github.com/adamrk/esa-ol#readme
+bug-reports:    https://github.com/adamrk/esa-ol/issues
+author:         Adam Bratschi-Kaye
+maintainer:     ark.email@gmail.com
+copyright:      All Rights Reserved
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/adamrk/esa-ol
+
+library
+  exposed-modules:
+      OL
+  other-modules:
+      Paths_esa_ol
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , text
+    , attoparsec
+    , containers
+    , transformers
+  default-language: Haskell2010
+
+executable esa-ol-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_esa_ol
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , esa-ol
+  default-language: Haskell2010
+
+test-suite esa-ol-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_esa_ol
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , esa-ol
+    , hspec
+    , text
+    , attoparsec
+    , raw-strings-qq
+  default-language: Haskell2010
