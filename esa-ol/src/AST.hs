@@ -10,6 +10,7 @@ module AST
 
 import Data.Char
 import Data.Text as T
+import Data.Int
 
 data Program = Program [Stmt]
     deriving (Eq, Show)
@@ -17,7 +18,10 @@ data Program = Program [Stmt]
 type Variable = String
 
 data Stmt
-    = Assign Variable Expr
+    -- | Assign a local variable 
+    = LAssign Variable Expr
+    -- | Assign a global variable
+    | GAssign Variable Expr
     | If Expr [Stmt]
     | IfElse Expr [Stmt] [Stmt]
     -- | e.g. @5;@ The last calculated value prior to exiting the OL script is used as the source value of the associated synthetic parameter.
@@ -39,7 +43,7 @@ data Expr
     -- | Global variable, e.g. @GVAR_T1@
     | GVar Variable
     -- | TODO: either int, bool, double, string, time, etc.
-    | Int Int
+    | Int Int64
     -- current time
     | SystemTime
     | SystemDate

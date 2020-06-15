@@ -28,8 +28,8 @@ source-repository head
 library
   exposed-modules:
       AST
-      OL
       Parse
+      Eval
   other-modules:
       Paths_esa_ol
   hs-source-dirs:
@@ -41,6 +41,8 @@ library
     , parser-combinators
     , containers
     , transformers
+    , esa-base
+    , lens
   default-language: Haskell2010
 
 executable esa-ol-exe
